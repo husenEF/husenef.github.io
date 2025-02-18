@@ -1,0 +1,22 @@
+{
+    "invoices": [
+        {
+            "id": 1,
+            "name": "Invoice 1",
+            "status": "pending",
+            "due_date": "2022-08-01"
+        },
+        {
+            "id": 2,
+            "name": "Invoice 2",
+            "status": "paid",
+            "due_date": "2022-07-01"
+        },
+        {
+            "id": 3,
+            "name": "Invoice 3",
+            "status": "pending",
+            "due_date": "2022-09-01"
+        }
+    ]
+  }
