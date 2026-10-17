@@ -1,91 +1,990 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>We're under construction / Maintenance </title>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Husen Efendi | Senior Software Engineer</title>
+  <meta name="description" content="Personal website and portfolio of Husen Efendi - Senior Software Engineer with 11+ years of experience in React, Vue, React Native, Node.js, and modern web development." />
+  <meta name="keywords" content="Husen Efendi, Software Engineer, Frontend Developer, React, React Native, Vue, TypeScript, Node.js, Laravel, Yogyakarta" />
+  <meta name="author" content="Husen Efendi" />
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">		
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Husen Efendi | Senior Software Engineer" />
+  <meta property="og:description" content="Software Engineer with 11+ years of experience building modern web & mobile applications." />
+  <meta property="og:url" content="https://husenef.github.io/" />
+  <meta property="og:image" content="https://husenef.github.io/assets/avatar.jpg" />
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/avatar.jpg" />
 
-    <style>
-		/* Sticky footer styles
-		-------------------------------------------------- */
-		html {
-		  position: relative;
-		  min-height: 100%;
-		}
-		body {
-		  /* Margin bottom by footer height */
-		  margin-bottom: 60px;
-		}
-		.footer {
-		  position: absolute;
-		  bottom: 0;
-		  width: 100%;
-		  /* Set the fixed height of the footer here */
-		  height: 60px;
-		  background-color: #f5f5f5;
-		}
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            accent: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            }
+          }
+        }
+      }
+    }
+  </script>
 
-		/* Custom page CSS
-		-------------------------------------------------- */
-		/* Not required for template or sticky footer method. */
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-		.container {
-		  width: auto;
-		  max-width: 680px;
-		  padding: 0 15px;
-		}
-		.container .text-muted {
-		  margin: 20px 0;
-		}
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.4);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.7);
+    }
 
+    .bg-grid-pattern {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+    }
+    .dark .bg-grid-pattern {
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-[#0b0f19] dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand-500 selection:text-white">
 
-    </style>
+  <!-- Background Decorative Glows -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 bg-grid-pattern opacity-70"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-brand-500/10 dark:bg-brand-500/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="fixed top-1/3 right-10 w-80 h-80 bg-accent-500/10 dark:bg-accent-500/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-[#0b0f19]/80 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-2 group">
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-500 flex items-center justify-center text-white font-mono font-bold text-sm shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+          HE
+        </span>
+        <div class="flex flex-col">
+          <span class="font-bold text-slate-900 dark:text-white tracking-tight leading-none group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors">Husen Efendi</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">Software Engineer</span>
+        </div>
+      </a>
 
-  </head>
-  <body>
-  <div class="container" style="margin-top:20px">
-	  <div class="jumbotron">
-	    <h1>Under Construction</h1> 
-	    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
+        <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Skills</a>
+        <a href="#mentorship" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Mentorship</a>
+        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+      </nav>
 
-	    <p>Please come back later, we're still under development.</p> 
-	  </div>
-	  <p>Last Updated: August 2016</p> 
-	
-	</div>
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <!-- Dark/Light Theme Toggle -->
+        <button id="theme-toggle" aria-label="Toggle theme" class="w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
+        </button>
 
-	<footer class="footer">
-      <div class="container">
-        <p class="text-muted">&copy; Your Company 2016</p>
+        <!-- Download CV Button -->
+        <a href="Husen-Efendi-Resume.pdf" target="_blank" download class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm shadow-brand-500/30 transition-all hover:-translate-y-0.5">
+          <i data-lucide="file-down" class="w-3.5 h-3.5"></i>
+          <span>Resume PDF</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" aria-label="Open navigation menu" class="md:hidden w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
       </div>
-    </footer>
-    
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	
-	<script>
-	
-		jQuery(document).ready(function () {
-			console.log('ready to go!');
-		});
-	
-	</script> 
-  </body>
+    </div>
+
+    <!-- Mobile Nav Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b0f19] px-4 py-4 space-y-3">
+      <a href="#about" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">About</a>
+      <a href="#experience" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Experience</a>
+      <a href="#projects" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Projects</a>
+      <a href="#skills" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Skills</a>
+      <a href="#mentorship" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Mentorship</a>
+      <a href="#contact" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Contact</a>
+      <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
+        <a href="Husen-Efendi-Resume.pdf" target="_blank" download class="inline-flex items-center gap-2 w-full justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-brand-600 text-white">
+          <i data-lucide="file-down" class="w-4 h-4"></i> Download Resume (PDF)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-20 sm:space-y-28">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="pt-4 sm:pt-8 flex flex-col md:flex-row items-center gap-10 md:gap-14">
+      <div class="flex-1 space-y-6 text-center md:text-left">
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Open to Software Engineering & Frontend Opportunities</span>
+        </div>
+
+        <div class="space-y-2">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-500 to-accent-500">Husen Efendi</span>
+          </h1>
+          <p class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300">
+            Senior Software Engineer & Frontend Specialist
+          </p>
+        </div>
+
+        <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl">
+          With <strong class="text-slate-800 dark:text-slate-200 font-semibold">11+ years of experience</strong> crafting responsive web applications, mobile platforms, and robust backend integrations. Focused on modern JavaScript/TypeScript, React, Vue, React Native, and clean engineering architecture.
+        </p>
+
+        <!-- Location & Contact chips -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono">
+          <span class="inline-flex items-center gap-1.5">
+            <i data-lucide="map-pin" class="w-4 h-4 text-brand-500"></i>
+            Yogyakarta, Indonesia
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <i data-lucide="mail" class="w-4 h-4 text-brand-500"></i>
+            husenef@gmail.com
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <i data-lucide="phone" class="w-4 h-4 text-brand-500"></i>
+            +62 815 4727 4525
+          </span>
+        </div>
+
+        <!-- Hero Actions -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+          <a href="Husen-Efendi-Resume.pdf" target="_blank" download class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md shadow-brand-500/25 transition-all hover:-translate-y-0.5">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Download CV (PDF)</span>
+          </a>
+          <a href="https://github.com/husenEF" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700/80 bg-white/70 dark:bg-slate-800/70 hover:bg-slate-100 dark:hover:bg-slate-700/60 text-slate-700 dark:text-slate-200 font-medium text-sm transition-all hover:-translate-y-0.5">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            <span>GitHub Profile</span>
+          </a>
+          <a href="https://wa.me/6281547274525" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400 font-medium text-sm hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-all hover:-translate-y-0.5">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Avatar & Profile Visual -->
+      <div class="relative flex-shrink-0">
+        <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-600 via-indigo-500 to-accent-500 rounded-3xl blur-xl opacity-60 dark:opacity-40 animate-pulse"></div>
+        <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl overflow-hidden border-2 border-white/60 dark:border-slate-700 bg-slate-900 shadow-2xl">
+          <img src="assets/avatar.jpg" alt="Husen Efendi" class="w-full h-full object-cover object-center" onerror="this.src='https://avatars.githubusercontent.com/u/546566?v=4'" />
+        </div>
+        <!-- Tech floating badges -->
+        <div class="absolute -bottom-3 -left-3 px-3 py-1.5 rounded-xl bg-white/95 dark:bg-slate-800/95 border border-slate-200 dark:border-slate-700 shadow-lg text-xs font-mono font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
+          <i data-lucide="code-2" class="w-3.5 h-3.5"></i> 11+ Years Dev
+        </div>
+        <div class="absolute -top-3 -right-3 px-3 py-1.5 rounded-xl bg-white/95 dark:bg-slate-800/95 border border-slate-200 dark:border-slate-700 shadow-lg text-xs font-mono font-semibold text-accent-600 dark:text-accent-400 flex items-center gap-1.5">
+          <i data-lucide="smartphone" class="w-3.5 h-3.5"></i> React Native
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS STRIP -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl bg-white/60 dark:bg-slate-800/40 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
+      <div class="text-center p-3">
+        <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-500 font-mono">11+</div>
+        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">Years Experience</div>
+      </div>
+      <div class="text-center p-3 border-l border-slate-200 dark:border-slate-800">
+        <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-accent-500 font-mono">5+</div>
+        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">Years React & Vue</div>
+      </div>
+      <div class="text-center p-3 border-l border-slate-200 dark:border-slate-800">
+        <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-teal-400 font-mono">20+</div>
+        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">Shipped Applications</div>
+      </div>
+      <div class="text-center p-3 border-l border-slate-200 dark:border-slate-800">
+        <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400 font-mono">500+</div>
+        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">Developers Trained</div>
+      </div>
+    </section>
+
+    <!-- ABOUT & TECHNICAL SUMMARY -->
+    <section id="about" class="space-y-8">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
+          <i data-lucide="user-check" class="w-3.5 h-3.5"></i> Profile Overview
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Technical Summary</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-3xl">
+          A track record spanning over a decade of delivering commercial software, modern web platforms, mobile solutions, and leading technical trainings.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1: Frontend & UI -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-lg hover:-translate-y-1 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-brand-500/10 dark:bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center">
+            <i data-lucide="layout" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Modern Frontend & UI</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            5+ years mastering React.js and Vue.js (Composition API). Over 11 years deep expertise with HTML5, modern CSS, Tailwind CSS, Material UI, and preprocessors (SASS/SCSS, LESS, PostCSS).
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">React.js</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">Vue.js</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">TypeScript</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">Tailwind</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Mobile & Hybrid -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-accent-500/40 transition-all hover:shadow-lg hover:-translate-y-1 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-accent-500/10 dark:bg-accent-500/20 text-accent-600 dark:text-accent-400 flex items-center justify-center">
+            <i data-lucide="smartphone" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Mobile & Hardware I/O</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Hands-on React Native & Expo developer with real-world deployments to Google Play Store. Experienced integrating specialized hardware like selfie kiosks and ID card scanners.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">React Native</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">Expo</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">Android Kiosk</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">CI/CD Deploy</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Backend & Enterprise -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-indigo-500/40 transition-all hover:shadow-lg hover:-translate-y-1 space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+            <i data-lucide="server" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Backend & APIs</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            8+ years with PHP (Laravel, Lumen, CodeIgniter, WordPress Multisite), complemented by Node.js, NestJS, Express, and Docker. Experience designing decoupled REST architectures.
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">NodeJS / NestJS</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">Laravel / Lumen</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">REST APIs</span>
+            <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-700 dark:text-slate-300">Docker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE TIMELINE -->
+    <section id="experience" class="space-y-8">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5"></i> Career Journey
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Work Experience</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+          Proven history of working with international engineering teams and delivering production-ready platforms.
+        </p>
+      </div>
+
+      <div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 sm:ml-6 space-y-10">
+
+        <!-- Experience Item 1 -->
+        <div class="relative pl-6 sm:pl-8 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-white dark:ring-[#0b0f19] group-hover:scale-125 transition-transform"></span>
+          <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-colors shadow-sm space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Front End Developer</h3>
+                <div class="text-brand-600 dark:text-brand-400 font-semibold text-sm">Sera Global</div>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-brand-500/10 text-brand-600 dark:text-brand-300 w-fit">
+                Dec 2025 — Present
+              </span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Developed and maintained responsive web applications using React.js, Vue.js, and modern frontend tooling.</li>
+              <li>Owned mobile application releases, including end-to-end CI/CD and deployment processes.</li>
+              <li>Managed, prioritized, and reviewed tickets in close collaboration with product and UI/UX design teams.</li>
+              <li>Identified and implemented architectural improvements to the codebase structure and developer experience (DX).</li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">React.js</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Vue.js</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Mobile CI/CD</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">DX Architecture</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Item 2 -->
+        <div class="relative pl-6 sm:pl-8 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-white dark:ring-[#0b0f19] group-hover:scale-125 transition-transform"></span>
+          <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-indigo-500/40 transition-colors shadow-sm space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Front End Developer</h3>
+                <div class="text-indigo-600 dark:text-indigo-400 font-semibold text-sm">Softwareseni</div>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+                Aug 2021 — Oct 2025
+              </span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Built large-scale web applications using React.js and modern component architecture.</li>
+              <li>Engineered clean, responsive UI layouts utilizing Material UI and Tailwind CSS.</li>
+              <li>Collaborated daily in active voice standups and agile sprints directly with Australian clients.</li>
+              <li>Built internal mobile applications using React Native and Expo ecosystem.</li>
+              <li>Built and integrated backend services using NestJS and REST endpoints.</li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">React.js</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">React Native / Expo</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Material UI</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">NestJS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Item 3 -->
+        <div class="relative pl-6 sm:pl-8 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent-500 ring-4 ring-white dark:ring-[#0b0f19] group-hover:scale-125 transition-transform"></span>
+          <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-accent-500/40 transition-colors shadow-sm space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Associate Trainer</h3>
+                <div class="text-accent-600 dark:text-accent-400 font-semibold text-sm">Refactory</div>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+                Jul 2020 — Jul 2021
+              </span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Handled short and intensive professional programming trainings for aspiring engineers.</li>
+              <li>Hosted Refactory Live tech discussions broadcasted live covering Vue.js, React Native, and Flutter.</li>
+              <li>Led internal developer bootcamps: training engineers from foundational JavaScript to advanced React Native.</li>
+              <li>Authored comprehensive video courses on CodeIgniter, React.js Context API, React Native, and Vue Composition API.</li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Tech Mentoring</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Bootcamp Lead</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Curriculum Development</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Item 4 -->
+        <div class="relative pl-6 sm:pl-8 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 ring-4 ring-white dark:ring-[#0b0f19] group-hover:scale-125 transition-transform"></span>
+          <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-slate-400/40 transition-colors shadow-sm space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">React Native Developer</h3>
+                <div class="text-slate-700 dark:text-slate-300 font-semibold text-sm">Refactory</div>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+                Sep 2019 — Jul 2020
+              </span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Developed cross-platform mobile applications using React Native.</li>
+              <li>Maintained production mobile apps deployed and active on Google Play Store.</li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">React Native</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Google Play Store</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Mobile UI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Item 5 -->
+        <div class="relative pl-6 sm:pl-8 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 ring-4 ring-white dark:ring-[#0b0f19] group-hover:scale-125 transition-transform"></span>
+          <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-slate-400/40 transition-colors shadow-sm space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Web Developer</h3>
+                <div class="text-slate-700 dark:text-slate-300 font-semibold text-sm">Marketbiz</div>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+                2013 — 2018
+              </span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Created client websites using WordPress, Laravel, and CodeIgniter.</li>
+              <li>Engineered custom WordPress themes and plugins, including custom WooCommerce integrations.</li>
+              <li>Developed an MLM Web Application utilizing WordPress Multisite architecture with subdomains.</li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">WordPress Multisite</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Laravel / CI</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">WooCommerce</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Item 6 -->
+        <div class="relative pl-6 sm:pl-8 group">
+          <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 ring-4 ring-white dark:ring-[#0b0f19] group-hover:scale-125 transition-transform"></span>
+          <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-slate-400/40 transition-colors shadow-sm space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Junior Web Developer</h3>
+                <div class="text-slate-700 dark:text-slate-300 font-semibold text-sm">Indosoft</div>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+                2011 — 2013
+              </span>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+              <li>Created websites using WordPress, Joomla, and Magento.</li>
+              <li>Pixel-perfect day-to-day conversion of PSD design mockups into semantic, cross-browser HTML & CSS.</li>
+            </ul>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">HTML5 / CSS3</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Design to HTML</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">WordPress</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section id="projects" class="space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i> Showcase
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Featured Projects & Systems</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl">
+            Selected projects highlighting architectural leadership, custom implementations, and full-stack solutions.
+          </p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="flex flex-wrap gap-2 text-xs font-mono" id="project-filters">
+          <button data-filter="all" class="filter-btn active px-3 py-1.5 rounded-lg bg-brand-600 text-white font-medium transition-colors">All</button>
+          <button data-filter="web" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Web</button>
+          <button data-filter="mobile" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Mobile & IoT</button>
+          <button data-filter="fullstack" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Fullstack</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projects-grid">
+
+        <!-- Project 1: MLM Web Application -->
+        <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="web fullstack">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium">Enterprise Platform</span>
+              <span class="text-xs font-mono text-slate-400">Project Lead</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">WordPress Multisite MLM Platform</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Architected and led the development of a multi-tenant WordPress Multisite network enabling dynamic creation of subdomains with individual user themes for recruitment and sales. Built a custom plugin utilizing the WooCommerce REST API to centralize catalog items, transactions, and downline stockist orders on the main hub.
+            </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">WordPress Multisite</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">WooCommerce REST API</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Custom Plugins</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Vehicle Service Management -->
+        <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="web fullstack">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium">Fleet Management</span>
+              <span class="text-xs font-mono text-slate-400">From Scratch</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Bus Fleet & Vehicle Service System</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Designed and built from scratch an enterprise management system to record and track all repair, maintenance, and diagnostics performed on buses. Implemented an independently deployable decoupled architecture with a Lumen (Laravel micro-framework) REST API backend and a responsive Vue.js frontend, ensuring seamless expansion for mobile field workers.
+            </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Vue.js</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Lumen / Laravel</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Decoupled REST API</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Fleet Operations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Social App & Community Platform -->
+        <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="web fullstack">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Social & Community</span>
+              <span class="text-xs font-mono text-slate-400">Full Testing Suite</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Business Community & Social Platform</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Developed an interactive social platform tailored for business networks featuring timelines, group-based feeds, courses, and blogs. Built with React.js frontend integrated with the Amity Social Engine, Hapi.js backend services, and Strapi CMS. Containerized with Docker and tested with Cypress E2E test suites across all key pages.
+            </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">React.js</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Amity Engine</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Hapi.js</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Strapi</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Cypress E2E</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Docker</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: React Native Hotel Self-Check-in & HR App -->
+        <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="mobile">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-amber-500/10 text-amber-600 dark:text-amber-400 font-medium">Mobile & Hardware Kiosk</span>
+              <span class="text-xs font-mono text-slate-400">Google Play Store</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Hotel Self-Check-In Kiosk & HR Mobile Suite</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Built contactless self-check-in mobile hardware for hotels, integrating selfie camera capture and physical ID card scanner devices. In addition, developed and shipped an internal enterprise HR mobile app released on Google Play Store featuring check-in/out, GPS/photo verification, payroll summaries, and leave management.
+            </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">React Native</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Android Kiosk</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Hardware Scanner I/O</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Play Store Deploy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Mini Invoice Generator -->
+        <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="web">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-medium">Open Source Utility</span>
+              <a href="https://github.com/husenEF/mini-invoice" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
+                <span>View Repo</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Mini Invoice App</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Lightweight, fast invoice generation and tracking tool crafted for freelancers and small teams. Generates clean client invoices with automated calculations and downloadable print-ready formats.
+            </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">JavaScript</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">React</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">PDF Generator</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: ClaudeUsageBar -->
+        <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="fullstack">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-violet-500/10 text-violet-600 dark:text-violet-400 font-medium">macOS Tool</span>
+              <a href="https://github.com/husenEF/ClaudeUsageBar" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
+                <span>View Repo</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">ClaudeUsageBar for macOS</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A native macOS menu bar application to monitor AI prompt limits and usage quotas in real-time, designed for developer productivity and seamless workflow visibility.
+            </p>
+          </div>
+          <div class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">macOS App</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">API Integration</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">Dev Productivity</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX -->
+    <section id="skills" class="space-y-8">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
+          <i data-lucide="wrench" class="w-3.5 h-3.5"></i> Toolset & Expertise
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Skills & Tech Stack</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+          A comprehensive overview of technologies and tools honed over 11+ years of building software.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Column 1: Frontend -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 space-y-4">
+          <div class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-bold text-sm uppercase tracking-wide">
+            <i data-lucide="monitor" class="w-4 h-4"></i>
+            <span>Frontend</span>
+          </div>
+          <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-center justify-between">
+              <span>React.js</span>
+              <span class="text-xs font-mono text-slate-400">5+ yrs</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Vue.js / Composition</span>
+              <span class="text-xs font-mono text-slate-400">5+ yrs</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>TypeScript / ES6+</span>
+              <span class="text-xs font-mono text-slate-400">8+ yrs</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Tailwind CSS</span>
+              <span class="text-xs font-mono text-slate-400">Advanced</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Material UI</span>
+              <span class="text-xs font-mono text-slate-400">Experienced</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>HTML5 / SASS / CSS3</span>
+              <span class="text-xs font-mono text-slate-400">11+ yrs</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Mobile -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 space-y-4">
+          <div class="flex items-center gap-2 text-accent-600 dark:text-accent-400 font-bold text-sm uppercase tracking-wide">
+            <i data-lucide="smartphone" class="w-4 h-4"></i>
+            <span>Mobile</span>
+          </div>
+          <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-center justify-between">
+              <span>React Native</span>
+              <span class="text-xs font-mono text-slate-400">3+ yrs</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Expo Ecosystem</span>
+              <span class="text-xs font-mono text-slate-400">Experienced</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Google Play Releases</span>
+              <span class="text-xs font-mono text-slate-400">Production</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Hardware Scanner I/O</span>
+              <span class="text-xs font-mono text-slate-400">Experienced</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Mobile CI/CD</span>
+              <span class="text-xs font-mono text-slate-400">Workflow</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Backend -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 space-y-4">
+          <div class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-bold text-sm uppercase tracking-wide">
+            <i data-lucide="database" class="w-4 h-4"></i>
+            <span>Backend & CMS</span>
+          </div>
+          <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-center justify-between">
+              <span>Node.js / Express</span>
+              <span class="text-xs font-mono text-slate-400">2+ yrs</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>NestJS</span>
+              <span class="text-xs font-mono text-slate-400">Experienced</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>PHP / Laravel / Lumen</span>
+              <span class="text-xs font-mono text-slate-400">8+ yrs</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>WordPress Multisite</span>
+              <span class="text-xs font-mono text-slate-400">Advanced</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>MySQL / PostgreSQL</span>
+              <span class="text-xs font-mono text-slate-400">8+ yrs</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>RESTful APIs</span>
+              <span class="text-xs font-mono text-slate-400">Architect</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Quality & DevOps -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 space-y-4">
+          <div class="flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold text-sm uppercase tracking-wide">
+            <i data-lucide="git-branch" class="w-4 h-4"></i>
+            <span>Testing & Ops</span>
+          </div>
+          <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+            <li class="flex items-center justify-between">
+              <span>Cypress (E2E)</span>
+              <span class="text-xs font-mono text-slate-400">Active</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Unit Testing (Jest)</span>
+              <span class="text-xs font-mono text-slate-400">Active</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Docker & Containers</span>
+              <span class="text-xs font-mono text-slate-400">Active</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Git & GitHub Workflows</span>
+              <span class="text-xs font-mono text-slate-400">11+ yrs</span>
+            </li>
+            <li class="flex items-center justify-between">
+              <span>Agile & International DX</span>
+              <span class="text-xs font-mono text-slate-400">Global</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MENTORSHIP & TRAINING -->
+    <section id="mentorship" class="p-8 rounded-3xl bg-gradient-to-br from-brand-600/10 via-indigo-600/5 to-transparent border border-brand-500/20 space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i> Giving Back
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Training, Mentorship & Community</h2>
+        </div>
+        <div class="px-4 py-2 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 w-fit text-xs font-mono text-brand-600 dark:text-brand-400 font-semibold">
+          Refactory Associate Trainer (2020 — 2021)
+        </div>
+      </div>
+
+      <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl">
+        Passionate about empowering the next generation of engineers. Led multiple full-cycle bootcamps, mentored junior-to-mid software developers, and authored structured engineering video courses.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+        <div class="p-4 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+          <i data-lucide="users" class="w-5 h-5 text-brand-500"></i>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white">Internal Bootcamps</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400">Mentored cohorts from JavaScript fundamentals to advanced React Native development.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+          <i data-lucide="video" class="w-5 h-5 text-indigo-500"></i>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white">Video Courses</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400">Created comprehensive courses on React Context API, Vue Composition API, and CodeIgniter.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+          <i data-lucide="radio" class="w-5 h-5 text-accent-500"></i>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white">Live Tech Sessions</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400">Hosted live interactive streams breaking down modern mobile & web frameworks.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+          <i data-lucide="code" class="w-5 h-5 text-teal-500"></i>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white">Code Reviews & DX</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400">Reviewed hundreds of pull requests to instill clean architecture and testing best practices.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i> Get In Touch
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Let's Build Something Great Together</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+          Whether you have an upcoming project, a remote team opportunity, or want to discuss modern frontend architecture, feel free to reach out.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Email -->
+        <a href="mailto:husenef@gmail.com" class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 text-center space-y-2 transition-all hover:shadow-lg hover:-translate-y-1 block group">
+          <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </div>
+          <div class="font-bold text-slate-900 dark:text-white text-sm">Email</div>
+          <div class="text-xs font-mono text-slate-500 dark:text-slate-400 truncate">husenef@gmail.com</div>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/6281547274525" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-500/40 text-center space-y-2 transition-all hover:shadow-lg hover:-translate-y-1 block group">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+          </div>
+          <div class="font-bold text-slate-900 dark:text-white text-sm">WhatsApp</div>
+          <div class="text-xs font-mono text-slate-500 dark:text-slate-400">+62 815 4727 4525</div>
+        </a>
+
+        <!-- Location -->
+        <div class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 text-center space-y-2">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mx-auto">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+          </div>
+          <div class="font-bold text-slate-900 dark:text-white text-sm">Location</div>
+          <div class="text-xs font-mono text-slate-500 dark:text-slate-400">Yogyakarta, Indonesia</div>
+        </div>
+      </div>
+
+      <div class="text-center pt-4">
+        <a href="Husen-Efendi-Resume.pdf" target="_blank" download class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-700 hover:to-indigo-700 text-white font-semibold text-sm shadow-lg shadow-brand-500/25 transition-all hover:-translate-y-0.5">
+          <i data-lucide="file-down" class="w-4 h-4"></i>
+          <span>Download Complete Resume (PDF)</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 border-t border-slate-200 dark:border-slate-800/80 bg-white/50 dark:bg-[#0b0f19]/50 backdrop-blur-md py-8 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400 font-mono">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+        <span>&copy; <span id="current-year"></span> Husen Efendi. Crafted for GitHub Pages.</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="https://github.com/husenEF" target="_blank" rel="noopener noreferrer" class="hover:text-brand-500 transition-colors flex items-center gap-1">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
+        </a>
+        <a href="mailto:husenef@gmail.com" class="hover:text-brand-500 transition-colors flex items-center gap-1">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
+        </a>
+        <a href="#hero" class="hover:text-brand-500 transition-colors flex items-center gap-1">
+          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i> Back to top
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR INTERACTIVITY -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Dark Mode Toggle Logic
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    // Check saved theme or prefer-color-scheme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      htmlElement.classList.remove('dark');
+    } else {
+      htmlElement.classList.add('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Project Filter Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update button active state
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-brand-600', 'text-white');
+          b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+        });
+        btn.classList.add('active', 'bg-brand-600', 'text-white');
+        btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+
+        // Filter cards
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category.includes(filter)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
 </html>
