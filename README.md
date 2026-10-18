@@ -1,26 +1,23 @@
 # Husen Efendi - Personal Website & Portfolio
 
-Personal portfolio and resume website of **Husen Efendi** (Software Engineer & Frontend Specialist). Hosted on [GitHub Pages](https://husenef.github.io).
+Personal portfolio and web page of **Husen Efendi** (Software Engineer & Frontend Specialist). Hosted on [GitHub Pages](https://husenef.github.io).
 
 ## 🚀 Live Site
 - **Website**: [https://husenef.github.io](https://husenef.github.io)
-- **Resume (PDF)**: [Husen-Efendi-Resume.pdf](Husen-Efendi-Resume.pdf)
 
-## 🛠️ Tech Stack
-- **HTML5 & Vanilla JavaScript**
-- **Tailwind CSS** (Modern utility-first styling with Dark / Light mode toggle)
-- **Lucide Icons**
-- **Plus Jakarta Sans & JetBrains Mono** (Google Fonts)
+## ✨ Features
+- **Bilingual (EN / ID)**: Instant multi-language switching between English and Bahasa Indonesia.
+- **Privacy-First**: No exposed personal contact data (phone numbers, private email, or home addresses). Connects directly via GitHub.
+- **Print / Save as PDF**: Clean browser print styling for saving a resume copy on demand.
+- **Dark / Light Mode**: Seamless theme switching with saved user preferences.
+- **Responsive & Modern**: Built with Tailwind CSS, Lucide icons, and modern typography.
 
 ## 💻 Local Preview
-To preview locally, open `index.html` directly in any web browser, or use any local static server:
+To preview locally:
 
 ```bash
-# Using Python
+cd /Users/husenef/public_html/husenef.github.io
 python3 -m http.server 8000
-
-# Using Node.js npx
-npx serve .
 ```
 
 Then visit `http://localhost:8000`.

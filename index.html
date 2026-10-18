@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Husen Efendi | Senior Software Engineer</title>
-  <meta name="description" content="Personal website and portfolio of Husen Efendi - Senior Software Engineer with 11+ years of experience in React, Vue, React Native, Node.js, and modern web development." />
+  <meta name="description" content="Personal website & portfolio of Husen Efendi - Senior Software Engineer with 11+ years of experience in React, Vue, React Native, Node.js, and modern web development." />
   <meta name="keywords" content="Husen Efendi, Software Engineer, Frontend Developer, React, React Native, Vue, TypeScript, Node.js, Laravel, Yogyakarta" />
   <meta name="author" content="Husen Efendi" />
 
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Husen Efendi | Senior Software Engineer" />
-  <meta property="og:description" content="Software Engineer with 11+ years of experience building modern web & mobile applications." />
+  <meta property="og:description" content="Senior Software Engineer with 11+ years of experience building modern web & mobile applications." />
   <meta property="og:url" content="https://husenef.github.io/" />
   <meta property="og:image" content="https://husenef.github.io/assets/avatar.jpg" />
 
@@ -84,6 +84,29 @@
         linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
     }
+
+    /* Print styling: clean resume format for print / save as PDF */
+    @media print {
+      header, footer, #project-filters, #theme-toggle, #lang-toggle, .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: #1e293b !important;
+      }
+      .bg-grid-pattern, .fixed {
+        display: none !important;
+      }
+      main {
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .project-card, .rounded-2xl, .rounded-3xl {
+        box-shadow: none !important;
+        border: 1px solid #e2e8f0 !important;
+        break-inside: avoid;
+      }
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-[#0b0f19] dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-brand-500 selection:text-white">
@@ -94,7 +117,7 @@
   <div class="fixed top-1/3 right-10 w-80 h-80 bg-accent-500/10 dark:bg-accent-500/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
   <!-- NAVIGATION -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-[#0b0f19]/80 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/85 dark:bg-[#0b0f19]/85 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#hero" class="flex items-center gap-2 group">
         <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-500 flex items-center justify-center text-white font-mono font-bold text-sm shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
@@ -102,33 +125,39 @@
         </span>
         <div class="flex flex-col">
           <span class="font-bold text-slate-900 dark:text-white tracking-tight leading-none group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors">Husen Efendi</span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">Software Engineer</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono" data-i18n="nav.subtitle">Software Engineer</span>
         </div>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
-        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
-        <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Experience</a>
-        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Projects</a>
-        <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Skills</a>
-        <a href="#mentorship" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Mentorship</a>
-        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-i18n="nav.about">About</a>
+        <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-i18n="nav.experience">Experience</a>
+        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-i18n="nav.projects">Projects</a>
+        <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-i18n="nav.skills">Skills</a>
+        <a href="#mentorship" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-i18n="nav.mentorship">Mentorship</a>
+        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <!-- Action Buttons -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2.5">
+        <!-- Language Switcher (EN / ID) -->
+        <button id="lang-toggle" aria-label="Toggle language" class="px-2.5 py-1 text-xs font-mono font-semibold rounded-lg border border-slate-200 dark:border-slate-700/80 bg-white/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors flex items-center gap-1.5 shadow-sm">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-500"></i>
+          <span id="lang-label">EN / ID</span>
+        </button>
+
         <!-- Dark/Light Theme Toggle -->
-        <button id="theme-toggle" aria-label="Toggle theme" class="w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+        <button id="theme-toggle" aria-label="Toggle theme" class="w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shadow-sm">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
         </button>
 
-        <!-- Download CV Button -->
-        <a href="Husen-Efendi-Resume.pdf" target="_blank" download class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm shadow-brand-500/30 transition-all hover:-translate-y-0.5">
-          <i data-lucide="file-down" class="w-3.5 h-3.5"></i>
-          <span>Resume PDF</span>
-        </a>
+        <!-- Print / Export CV Button -->
+        <button onclick="window.print()" aria-label="Print CV" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm shadow-brand-500/30 transition-all hover:-translate-y-0.5">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+          <span data-i18n="nav.printCV">Print CV</span>
+        </button>
 
         <!-- Mobile Menu Toggle -->
         <button id="mobile-menu-btn" aria-label="Open navigation menu" class="md:hidden w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300">
@@ -139,16 +168,17 @@
 
     <!-- Mobile Nav Dropdown -->
     <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0b0f19] px-4 py-4 space-y-3">
-      <a href="#about" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">About</a>
-      <a href="#experience" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Experience</a>
-      <a href="#projects" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Projects</a>
-      <a href="#skills" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Skills</a>
-      <a href="#mentorship" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Mentorship</a>
-      <a href="#contact" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500">Contact</a>
-      <div class="pt-2 border-t border-slate-200 dark:border-slate-800">
-        <a href="Husen-Efendi-Resume.pdf" target="_blank" download class="inline-flex items-center gap-2 w-full justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-brand-600 text-white">
-          <i data-lucide="file-down" class="w-4 h-4"></i> Download Resume (PDF)
-        </a>
+      <a href="#about" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500" data-i18n="nav.about">About</a>
+      <a href="#experience" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500" data-i18n="nav.experience">Experience</a>
+      <a href="#projects" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500" data-i18n="nav.projects">Projects</a>
+      <a href="#skills" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500" data-i18n="nav.skills">Skills</a>
+      <a href="#mentorship" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500" data-i18n="nav.mentorship">Mentorship</a>
+      <a href="#contact" class="block py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-500" data-i18n="nav.contact">Contact</a>
+      <div class="pt-2 border-t border-slate-200 dark:border-slate-800 flex gap-2">
+        <button onclick="window.print()" class="inline-flex items-center gap-2 w-full justify-center px-4 py-2 text-sm font-semibold rounded-lg bg-brand-600 text-white">
+          <i data-lucide="printer" class="w-4 h-4"></i>
+          <span data-i18n="nav.printCV">Print CV</span>
+        </button>
       </div>
     </div>
   </header>
@@ -161,52 +191,48 @@
         <!-- Status Badge -->
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Open to Software Engineering & Frontend Opportunities</span>
+          <span data-i18n="hero.status">Open to Software Engineering & Frontend Opportunities</span>
         </div>
 
         <div class="space-y-2">
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
-            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-500 to-accent-500">Husen Efendi</span>
+            <span data-i18n="hero.greeting">Hi, I'm</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-500 to-accent-500">Husen Efendi</span>
           </h1>
-          <p class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300">
+          <p class="text-lg sm:text-xl font-medium text-slate-600 dark:text-slate-300" data-i18n="hero.role">
             Senior Software Engineer & Frontend Specialist
           </p>
         </div>
 
-        <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl">
-          With <strong class="text-slate-800 dark:text-slate-200 font-semibold">11+ years of experience</strong> crafting responsive web applications, mobile platforms, and robust backend integrations. Focused on modern JavaScript/TypeScript, React, Vue, React Native, and clean engineering architecture.
+        <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl" data-i18n="hero.bio">
+          With 11+ years of experience crafting responsive web applications, mobile platforms, and robust backend integrations. Focused on modern JavaScript/TypeScript, React, Vue, React Native, and clean engineering architecture.
         </p>
 
-        <!-- Location & Contact chips -->
+        <!-- Location Badge -->
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono">
-          <span class="inline-flex items-center gap-1.5">
-            <i data-lucide="map-pin" class="w-4 h-4 text-brand-500"></i>
-            Yogyakarta, Indonesia
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-500"></i>
+            <span data-i18n="hero.location">Yogyakarta, Indonesia</span>
           </span>
-          <span class="inline-flex items-center gap-1.5">
-            <i data-lucide="mail" class="w-4 h-4 text-brand-500"></i>
-            husenef@gmail.com
-          </span>
-          <span class="inline-flex items-center gap-1.5">
-            <i data-lucide="phone" class="w-4 h-4 text-brand-500"></i>
-            +62 815 4727 4525
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+            <i data-lucide="clock" class="w-3.5 h-3.5 text-accent-500"></i>
+            <span data-i18n="hero.experienceYears">11+ Years Experience</span>
           </span>
         </div>
 
         <!-- Hero Actions -->
         <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
-          <a href="Husen-Efendi-Resume.pdf" target="_blank" download class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md shadow-brand-500/25 transition-all hover:-translate-y-0.5">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            <span>Download CV (PDF)</span>
+          <a href="#projects" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-md shadow-brand-500/25 transition-all hover:-translate-y-0.5">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span data-i18n="hero.viewProjects">Explore Projects</span>
           </a>
           <a href="https://github.com/husenEF" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700/80 bg-white/70 dark:bg-slate-800/70 hover:bg-slate-100 dark:hover:bg-slate-700/60 text-slate-700 dark:text-slate-200 font-medium text-sm transition-all hover:-translate-y-0.5">
             <i data-lucide="github" class="w-4 h-4"></i>
-            <span>GitHub Profile</span>
+            <span data-i18n="hero.github">GitHub Profile</span>
           </a>
-          <a href="https://wa.me/6281547274525" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400 font-medium text-sm hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-all hover:-translate-y-0.5">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>WhatsApp</span>
-          </a>
+          <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700/80 bg-white/70 dark:bg-slate-800/70 hover:bg-slate-100 dark:hover:bg-slate-700/60 text-slate-700 dark:text-slate-200 font-medium text-sm transition-all hover:-translate-y-0.5">
+            <i data-lucide="printer" class="w-4 h-4 text-brand-500"></i>
+            <span data-i18n="hero.printCV">Print / Save CV</span>
+          </button>
         </div>
       </div>
 
@@ -218,7 +244,7 @@
         </div>
         <!-- Tech floating badges -->
         <div class="absolute -bottom-3 -left-3 px-3 py-1.5 rounded-xl bg-white/95 dark:bg-slate-800/95 border border-slate-200 dark:border-slate-700 shadow-lg text-xs font-mono font-semibold text-brand-600 dark:text-brand-400 flex items-center gap-1.5">
-          <i data-lucide="code-2" class="w-3.5 h-3.5"></i> 11+ Years Dev
+          <i data-lucide="code-2" class="w-3.5 h-3.5"></i> <span data-i18n="hero.badgeYears">11+ Years Dev</span>
         </div>
         <div class="absolute -top-3 -right-3 px-3 py-1.5 rounded-xl bg-white/95 dark:bg-slate-800/95 border border-slate-200 dark:border-slate-700 shadow-lg text-xs font-mono font-semibold text-accent-600 dark:text-accent-400 flex items-center gap-1.5">
           <i data-lucide="smartphone" class="w-3.5 h-3.5"></i> React Native
@@ -230,19 +256,19 @@
     <section class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl bg-white/60 dark:bg-slate-800/40 backdrop-blur-sm border border-slate-200/80 dark:border-slate-800/80 shadow-sm">
       <div class="text-center p-3">
         <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-500 font-mono">11+</div>
-        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">Years Experience</div>
+        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium" data-i18n="metrics.years">Years Experience</div>
       </div>
       <div class="text-center p-3 border-l border-slate-200 dark:border-slate-800">
         <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-accent-500 font-mono">5+</div>
-        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">Years React & Vue</div>
+        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium" data-i18n="metrics.modernJs">Years React & Vue</div>
       </div>
       <div class="text-center p-3 border-l border-slate-200 dark:border-slate-800">
         <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-teal-400 font-mono">20+</div>
-        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">Shipped Applications</div>
+        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium" data-i18n="metrics.shipped">Shipped Applications</div>
       </div>
       <div class="text-center p-3 border-l border-slate-200 dark:border-slate-800">
         <div class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400 font-mono">500+</div>
-        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">Developers Trained</div>
+        <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium" data-i18n="metrics.trained">Developers Trained</div>
       </div>
     </section>
 
@@ -250,10 +276,10 @@
     <section id="about" class="space-y-8">
       <div class="space-y-2">
         <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
-          <i data-lucide="user-check" class="w-3.5 h-3.5"></i> Profile Overview
+          <i data-lucide="user-check" class="w-3.5 h-3.5"></i> <span data-i18n="about.pill">Profile Overview</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Technical Summary</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-3xl">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight" data-i18n="about.title">Technical Summary</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-3xl" data-i18n="about.description">
           A track record spanning over a decade of delivering commercial software, modern web platforms, mobile solutions, and leading technical trainings.
         </p>
       </div>
@@ -264,8 +290,8 @@
           <div class="w-12 h-12 rounded-xl bg-brand-500/10 dark:bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center">
             <i data-lucide="layout" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Modern Frontend & UI</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="about.card1Title">Modern Frontend & UI</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="about.card1Body">
             5+ years mastering React.js and Vue.js (Composition API). Over 11 years deep expertise with HTML5, modern CSS, Tailwind CSS, Material UI, and preprocessors (SASS/SCSS, LESS, PostCSS).
           </p>
           <div class="flex flex-wrap gap-1.5 pt-2">
@@ -281,8 +307,8 @@
           <div class="w-12 h-12 rounded-xl bg-accent-500/10 dark:bg-accent-500/20 text-accent-600 dark:text-accent-400 flex items-center justify-center">
             <i data-lucide="smartphone" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Mobile & Hardware I/O</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="about.card2Title">Mobile & Hardware I/O</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="about.card2Body">
             Hands-on React Native & Expo developer with real-world deployments to Google Play Store. Experienced integrating specialized hardware like selfie kiosks and ID card scanners.
           </p>
           <div class="flex flex-wrap gap-1.5 pt-2">
@@ -298,8 +324,8 @@
           <div class="w-12 h-12 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
             <i data-lucide="server" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Backend & APIs</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="about.card3Title">Backend & Architecture</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="about.card3Body">
             8+ years with PHP (Laravel, Lumen, CodeIgniter, WordPress Multisite), complemented by Node.js, NestJS, Express, and Docker. Experience designing decoupled REST architectures.
           </p>
           <div class="flex flex-wrap gap-1.5 pt-2">
@@ -316,10 +342,10 @@
     <section id="experience" class="space-y-8">
       <div class="space-y-2">
         <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
-          <i data-lucide="briefcase" class="w-3.5 h-3.5"></i> Career Journey
+          <i data-lucide="briefcase" class="w-3.5 h-3.5"></i> <span data-i18n="exp.pill">Career Journey</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Work Experience</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight" data-i18n="exp.title">Work Experience</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base" data-i18n="exp.description">
           Proven history of working with international engineering teams and delivering production-ready platforms.
         </p>
       </div>
@@ -332,18 +358,18 @@
           <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-colors shadow-sm space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Front End Developer</h3>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="exp.item1Role">Front End Developer</h3>
                 <div class="text-brand-600 dark:text-brand-400 font-semibold text-sm">Sera Global</div>
               </div>
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-brand-500/10 text-brand-600 dark:text-brand-300 w-fit">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-brand-500/10 text-brand-600 dark:text-brand-300 w-fit" data-i18n="exp.item1Date">
                 Dec 2025 — Present
               </span>
             </div>
-            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside" data-i18n-html="exp.item1Bullets">
               <li>Developed and maintained responsive web applications using React.js, Vue.js, and modern frontend tooling.</li>
               <li>Owned mobile application releases, including end-to-end CI/CD and deployment processes.</li>
               <li>Managed, prioritized, and reviewed tickets in close collaboration with product and UI/UX design teams.</li>
-              <li>Identified and implemented architectural improvements to the codebase structure and developer experience (DX).</li>
+              <li>Identified and implemented architectural improvements to codebase structure and developer experience (DX).</li>
             </ul>
             <div class="flex flex-wrap gap-1.5 pt-2">
               <span class="px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700/60 font-mono text-slate-600 dark:text-slate-300">React.js</span>
@@ -360,14 +386,14 @@
           <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-indigo-500/40 transition-colors shadow-sm space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Front End Developer</h3>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="exp.item2Role">Front End Developer</h3>
                 <div class="text-indigo-600 dark:text-indigo-400 font-semibold text-sm">Softwareseni</div>
               </div>
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit" data-i18n="exp.item2Date">
                 Aug 2021 — Oct 2025
               </span>
             </div>
-            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside" data-i18n-html="exp.item2Bullets">
               <li>Built large-scale web applications using React.js and modern component architecture.</li>
               <li>Engineered clean, responsive UI layouts utilizing Material UI and Tailwind CSS.</li>
               <li>Collaborated daily in active voice standups and agile sprints directly with Australian clients.</li>
@@ -390,16 +416,16 @@
           <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-accent-500/40 transition-colors shadow-sm space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Associate Trainer</h3>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="exp.item3Role">Associate Trainer</h3>
                 <div class="text-accent-600 dark:text-accent-400 font-semibold text-sm">Refactory</div>
               </div>
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit" data-i18n="exp.item3Date">
                 Jul 2020 — Jul 2021
               </span>
             </div>
-            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
-              <li>Handled short and intensive professional programming trainings for aspiring engineers.</li>
-              <li>Hosted Refactory Live tech discussions broadcasted live covering Vue.js, React Native, and Flutter.</li>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside" data-i18n-html="exp.item3Bullets">
+              <li>Led intensive professional programming trainings and workshops for aspiring engineers.</li>
+              <li>Hosted Refactory Live tech discussions covering Vue.js, React Native, and Flutter.</li>
               <li>Led internal developer bootcamps: training engineers from foundational JavaScript to advanced React Native.</li>
               <li>Authored comprehensive video courses on CodeIgniter, React.js Context API, React Native, and Vue Composition API.</li>
             </ul>
@@ -417,14 +443,14 @@
           <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-slate-400/40 transition-colors shadow-sm space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">React Native Developer</h3>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="exp.item4Role">React Native Developer</h3>
                 <div class="text-slate-700 dark:text-slate-300 font-semibold text-sm">Refactory</div>
               </div>
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit" data-i18n="exp.item4Date">
                 Sep 2019 — Jul 2020
               </span>
             </div>
-            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside" data-i18n-html="exp.item4Bullets">
               <li>Developed cross-platform mobile applications using React Native.</li>
               <li>Maintained production mobile apps deployed and active on Google Play Store.</li>
             </ul>
@@ -442,14 +468,14 @@
           <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-slate-400/40 transition-colors shadow-sm space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Web Developer</h3>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="exp.item5Role">Web Developer</h3>
                 <div class="text-slate-700 dark:text-slate-300 font-semibold text-sm">Marketbiz</div>
               </div>
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit" data-i18n="exp.item5Date">
                 2013 — 2018
               </span>
             </div>
-            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside" data-i18n-html="exp.item5Bullets">
               <li>Created client websites using WordPress, Laravel, and CodeIgniter.</li>
               <li>Engineered custom WordPress themes and plugins, including custom WooCommerce integrations.</li>
               <li>Developed an MLM Web Application utilizing WordPress Multisite architecture with subdomains.</li>
@@ -468,14 +494,14 @@
           <div class="p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-slate-400/40 transition-colors shadow-sm space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <div>
-                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Junior Web Developer</h3>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="exp.item6Role">Junior Web Developer</h3>
                 <div class="text-slate-700 dark:text-slate-300 font-semibold text-sm">Indosoft</div>
               </div>
-              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 w-fit" data-i18n="exp.item6Date">
                 2011 — 2013
               </span>
             </div>
-            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside" data-i18n-html="exp.item6Bullets">
               <li>Created websites using WordPress, Joomla, and Magento.</li>
               <li>Pixel-perfect day-to-day conversion of PSD design mockups into semantic, cross-browser HTML & CSS.</li>
             </ul>
@@ -495,17 +521,17 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div class="space-y-2">
           <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
-            <i data-lucide="layers" class="w-3.5 h-3.5"></i> Showcase
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i> <span data-i18n="projects.pill">Showcase</span>
           </div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Featured Projects & Systems</h2>
-          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight" data-i18n="projects.title">Featured Projects & Systems</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl" data-i18n="projects.description">
             Selected projects highlighting architectural leadership, custom implementations, and full-stack solutions.
           </p>
         </div>
 
         <!-- Filter tabs -->
         <div class="flex flex-wrap gap-2 text-xs font-mono" id="project-filters">
-          <button data-filter="all" class="filter-btn active px-3 py-1.5 rounded-lg bg-brand-600 text-white font-medium transition-colors">All</button>
+          <button data-filter="all" class="filter-btn active px-3 py-1.5 rounded-lg bg-brand-600 text-white font-medium transition-colors" data-i18n="projects.filterAll">All</button>
           <button data-filter="web" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Web</button>
           <button data-filter="mobile" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Mobile & IoT</button>
           <button data-filter="fullstack" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Fullstack</button>
@@ -518,11 +544,11 @@
         <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="web fullstack">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium">Enterprise Platform</span>
-              <span class="text-xs font-mono text-slate-400">Project Lead</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium" data-i18n="p1.badge">Enterprise Platform</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="p1.role">Project Lead</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">WordPress Multisite MLM Platform</h3>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n="p1.title">WordPress Multisite MLM Platform</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="p1.desc">
               Architected and led the development of a multi-tenant WordPress Multisite network enabling dynamic creation of subdomains with individual user themes for recruitment and sales. Built a custom plugin utilizing the WooCommerce REST API to centralize catalog items, transactions, and downline stockist orders on the main hub.
             </p>
           </div>
@@ -540,11 +566,11 @@
         <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="web fullstack">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium">Fleet Management</span>
-              <span class="text-xs font-mono text-slate-400">From Scratch</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400 font-medium" data-i18n="p2.badge">Fleet Management</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="p2.role">From Scratch</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Bus Fleet & Vehicle Service System</h3>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n="p2.title">Bus Fleet & Vehicle Service System</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="p2.desc">
               Designed and built from scratch an enterprise management system to record and track all repair, maintenance, and diagnostics performed on buses. Implemented an independently deployable decoupled architecture with a Lumen (Laravel micro-framework) REST API backend and a responsive Vue.js frontend, ensuring seamless expansion for mobile field workers.
             </p>
           </div>
@@ -562,11 +588,11 @@
         <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="web fullstack">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Social & Community</span>
-              <span class="text-xs font-mono text-slate-400">Full Testing Suite</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium" data-i18n="p3.badge">Social & Community</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="p3.role">Full Testing Suite</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Business Community & Social Platform</h3>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n="p3.title">Business Community & Social Platform</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="p3.desc">
               Developed an interactive social platform tailored for business networks featuring timelines, group-based feeds, courses, and blogs. Built with React.js frontend integrated with the Amity Social Engine, Hapi.js backend services, and Strapi CMS. Containerized with Docker and tested with Cypress E2E test suites across all key pages.
             </p>
           </div>
@@ -586,11 +612,11 @@
         <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="mobile">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-amber-500/10 text-amber-600 dark:text-amber-400 font-medium">Mobile & Hardware Kiosk</span>
-              <span class="text-xs font-mono text-slate-400">Google Play Store</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-amber-500/10 text-amber-600 dark:text-amber-400 font-medium" data-i18n="p4.badge">Mobile & Hardware Kiosk</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="p4.role">Google Play Store</span>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Hotel Self-Check-In Kiosk & HR Mobile Suite</h3>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n="p4.title">Hotel Self-Check-In Kiosk & HR Mobile Suite</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="p4.desc">
               Built contactless self-check-in mobile hardware for hotels, integrating selfie camera capture and physical ID card scanner devices. In addition, developed and shipped an internal enterprise HR mobile app released on Google Play Store featuring check-in/out, GPS/photo verification, payroll summaries, and leave management.
             </p>
           </div>
@@ -608,14 +634,14 @@
         <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="web">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-medium">Open Source Utility</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-medium" data-i18n="p5.badge">Open Source Utility</span>
               <a href="https://github.com/husenEF/mini-invoice" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
-                <span>View Repo</span>
+                <span data-i18n="projects.viewRepo">View Repo</span>
                 <i data-lucide="external-link" class="w-3 h-3"></i>
               </a>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Mini Invoice App</h3>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n="p5.title">Mini Invoice App</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="p5.desc">
               Lightweight, fast invoice generation and tracking tool crafted for freelancers and small teams. Generates clean client invoices with automated calculations and downloadable print-ready formats.
             </p>
           </div>
@@ -632,14 +658,14 @@
         <div class="project-card p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between space-y-4" data-category="fullstack">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-violet-500/10 text-violet-600 dark:text-violet-400 font-medium">macOS Tool</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-violet-500/10 text-violet-600 dark:text-violet-400 font-medium" data-i18n="p6.badge">macOS Tool</span>
               <a href="https://github.com/husenEF/ClaudeUsageBar" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline flex items-center gap-1">
-                <span>View Repo</span>
+                <span data-i18n="projects.viewRepo">View Repo</span>
                 <i data-lucide="external-link" class="w-3 h-3"></i>
               </a>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">ClaudeUsageBar for macOS</h3>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n="p6.title">ClaudeUsageBar for macOS</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="p6.desc">
               A native macOS menu bar application to monitor AI prompt limits and usage quotas in real-time, designed for developer productivity and seamless workflow visibility.
             </p>
           </div>
@@ -659,10 +685,10 @@
     <section id="skills" class="space-y-8">
       <div class="space-y-2">
         <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
-          <i data-lucide="wrench" class="w-3.5 h-3.5"></i> Toolset & Expertise
+          <i data-lucide="wrench" class="w-3.5 h-3.5"></i> <span data-i18n="skills.pill">Toolset & Expertise</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Skills & Tech Stack</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight" data-i18n="skills.title">Skills & Tech Stack</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base" data-i18n="skills.description">
           A comprehensive overview of technologies and tools honed over 11+ years of building software.
         </p>
       </div>
@@ -678,27 +704,27 @@
           <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
             <li class="flex items-center justify-between">
               <span>React.js</span>
-              <span class="text-xs font-mono text-slate-400">5+ yrs</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.reactExp">5+ yrs</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Vue.js / Composition</span>
-              <span class="text-xs font-mono text-slate-400">5+ yrs</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.vueExp">5+ yrs</span>
             </li>
             <li class="flex items-center justify-between">
               <span>TypeScript / ES6+</span>
-              <span class="text-xs font-mono text-slate-400">8+ yrs</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.tsExp">8+ yrs</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Tailwind CSS</span>
-              <span class="text-xs font-mono text-slate-400">Advanced</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.advanced">Advanced</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Material UI</span>
-              <span class="text-xs font-mono text-slate-400">Experienced</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.experienced">Experienced</span>
             </li>
             <li class="flex items-center justify-between">
               <span>HTML5 / SASS / CSS3</span>
-              <span class="text-xs font-mono text-slate-400">11+ yrs</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.htmlExp">11+ yrs</span>
             </li>
           </ul>
         </div>
@@ -712,23 +738,23 @@
           <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
             <li class="flex items-center justify-between">
               <span>React Native</span>
-              <span class="text-xs font-mono text-slate-400">3+ yrs</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.rnExp">3+ yrs</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Expo Ecosystem</span>
-              <span class="text-xs font-mono text-slate-400">Experienced</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.experienced">Experienced</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Google Play Releases</span>
-              <span class="text-xs font-mono text-slate-400">Production</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.production">Production</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Hardware Scanner I/O</span>
-              <span class="text-xs font-mono text-slate-400">Experienced</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.experienced">Experienced</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Mobile CI/CD</span>
-              <span class="text-xs font-mono text-slate-400">Workflow</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.workflow">Workflow</span>
             </li>
           </ul>
         </div>
@@ -742,27 +768,27 @@
           <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
             <li class="flex items-center justify-between">
               <span>Node.js / Express</span>
-              <span class="text-xs font-mono text-slate-400">2+ yrs</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.nodeExp">2+ yrs</span>
             </li>
             <li class="flex items-center justify-between">
               <span>NestJS</span>
-              <span class="text-xs font-mono text-slate-400">Experienced</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.experienced">Experienced</span>
             </li>
             <li class="flex items-center justify-between">
               <span>PHP / Laravel / Lumen</span>
-              <span class="text-xs font-mono text-slate-400">8+ yrs</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.phpExp">8+ yrs</span>
             </li>
             <li class="flex items-center justify-between">
               <span>WordPress Multisite</span>
-              <span class="text-xs font-mono text-slate-400">Advanced</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.advanced">Advanced</span>
             </li>
             <li class="flex items-center justify-between">
               <span>MySQL / PostgreSQL</span>
-              <span class="text-xs font-mono text-slate-400">8+ yrs</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.phpExp">8+ yrs</span>
             </li>
             <li class="flex items-center justify-between">
               <span>RESTful APIs</span>
-              <span class="text-xs font-mono text-slate-400">Architect</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.architect">Architect</span>
             </li>
           </ul>
         </div>
@@ -776,23 +802,23 @@
           <ul class="space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
             <li class="flex items-center justify-between">
               <span>Cypress (E2E)</span>
-              <span class="text-xs font-mono text-slate-400">Active</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.active">Active</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Unit Testing (Jest)</span>
-              <span class="text-xs font-mono text-slate-400">Active</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.active">Active</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Docker & Containers</span>
-              <span class="text-xs font-mono text-slate-400">Active</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.active">Active</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Git & GitHub Workflows</span>
-              <span class="text-xs font-mono text-slate-400">11+ yrs</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.htmlExp">11+ yrs</span>
             </li>
             <li class="flex items-center justify-between">
               <span>Agile & International DX</span>
-              <span class="text-xs font-mono text-slate-400">Global</span>
+              <span class="text-xs font-mono text-slate-400" data-i18n="skills.global">Global</span>
             </li>
           </ul>
         </div>
@@ -805,89 +831,86 @@
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div class="space-y-2">
           <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
-            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i> Giving Back
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i> <span data-i18n="mentor.pill">Giving Back</span>
           </div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Training, Mentorship & Community</h2>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white" data-i18n="mentor.title">Training, Mentorship & Community</h2>
         </div>
-        <div class="px-4 py-2 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 w-fit text-xs font-mono text-brand-600 dark:text-brand-400 font-semibold">
+        <div class="px-4 py-2 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 w-fit text-xs font-mono text-brand-600 dark:text-brand-400 font-semibold" data-i18n="mentor.badge">
           Refactory Associate Trainer (2020 — 2021)
         </div>
       </div>
 
-      <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl">
+      <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl" data-i18n="mentor.description">
         Passionate about empowering the next generation of engineers. Led multiple full-cycle bootcamps, mentored junior-to-mid software developers, and authored structured engineering video courses.
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
         <div class="p-4 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
           <i data-lucide="users" class="w-5 h-5 text-brand-500"></i>
-          <h3 class="font-bold text-sm text-slate-900 dark:text-white">Internal Bootcamps</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400">Mentored cohorts from JavaScript fundamentals to advanced React Native development.</p>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white" data-i18n="mentor.c1Title">Internal Bootcamps</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400" data-i18n="mentor.c1Desc">Mentored cohorts from JavaScript fundamentals to advanced React Native development.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
           <i data-lucide="video" class="w-5 h-5 text-indigo-500"></i>
-          <h3 class="font-bold text-sm text-slate-900 dark:text-white">Video Courses</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400">Created comprehensive courses on React Context API, Vue Composition API, and CodeIgniter.</p>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white" data-i18n="mentor.c2Title">Video Courses</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400" data-i18n="mentor.c2Desc">Created comprehensive courses on React Context API, Vue Composition API, and CodeIgniter.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
           <i data-lucide="radio" class="w-5 h-5 text-accent-500"></i>
-          <h3 class="font-bold text-sm text-slate-900 dark:text-white">Live Tech Sessions</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400">Hosted live interactive streams breaking down modern mobile & web frameworks.</p>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white" data-i18n="mentor.c3Title">Live Tech Sessions</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400" data-i18n="mentor.c3Desc">Hosted live interactive streams breaking down modern mobile & web frameworks.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
           <i data-lucide="code" class="w-5 h-5 text-teal-500"></i>
-          <h3 class="font-bold text-sm text-slate-900 dark:text-white">Code Reviews & DX</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400">Reviewed hundreds of pull requests to instill clean architecture and testing best practices.</p>
+          <h3 class="font-bold text-sm text-slate-900 dark:text-white" data-i18n="mentor.c4Title">Code Reviews & DX</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400" data-i18n="mentor.c4Desc">Reviewed hundreds of pull requests to instill clean architecture and testing best practices.</p>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT SECTION (NO PERSONAL PHONE / EMAIL / ADDRESS EXPOSED) -->
     <section id="contact" class="space-y-8">
       <div class="text-center max-w-2xl mx-auto space-y-3">
         <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold">
-          <i data-lucide="send" class="w-3.5 h-3.5"></i> Get In Touch
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i> <span data-i18n="contact.pill">Connect</span>
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Let's Build Something Great Together</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
-          Whether you have an upcoming project, a remote team opportunity, or want to discuss modern frontend architecture, feel free to reach out.
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight" data-i18n="contact.title">Let's Build Something Great Together</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base" data-i18n="contact.description">
+          Open for engineering collaborations, frontend architecture consultations, and technical inquiries. Reach out through GitHub or connect directly below.
         </p>
       </div>
 
-      <div class="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <!-- Email -->
-        <a href="mailto:husenef@gmail.com" class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 text-center space-y-2 transition-all hover:shadow-lg hover:-translate-y-1 block group">
-          <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
-            <i data-lucide="mail" class="w-5 h-5"></i>
+      <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- GitHub Connect Card -->
+        <a href="https://github.com/husenEF" target="_blank" rel="noopener noreferrer" class="p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-brand-500/40 text-center space-y-3 transition-all hover:shadow-lg hover:-translate-y-1 block group">
+          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform shadow-md">
+            <i data-lucide="github" class="w-6 h-6"></i>
           </div>
-          <div class="font-bold text-slate-900 dark:text-white text-sm">Email</div>
-          <div class="text-xs font-mono text-slate-500 dark:text-slate-400 truncate">husenef@gmail.com</div>
+          <div class="font-bold text-slate-900 dark:text-white text-base">GitHub</div>
+          <div class="text-xs font-mono text-brand-600 dark:text-brand-400">github.com/husenEF</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="contact.githubSub">Explore repositories, open-source work, and code activity.</p>
         </a>
 
-        <!-- WhatsApp -->
-        <a href="https://wa.me/6281547274525" target="_blank" rel="noopener noreferrer" class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-500/40 text-center space-y-2 transition-all hover:shadow-lg hover:-translate-y-1 block group">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
-            <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <!-- Location Card -->
+        <div class="p-6 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 text-center space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
           </div>
-          <div class="font-bold text-slate-900 dark:text-white text-sm">WhatsApp</div>
-          <div class="text-xs font-mono text-slate-500 dark:text-slate-400">+62 815 4727 4525</div>
-        </a>
-
-        <!-- Location -->
-        <div class="p-5 rounded-2xl bg-white/70 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800/80 text-center space-y-2">
-          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mx-auto">
-            <i data-lucide="map-pin" class="w-5 h-5"></i>
-          </div>
-          <div class="font-bold text-slate-900 dark:text-white text-sm">Location</div>
-          <div class="text-xs font-mono text-slate-500 dark:text-slate-400">Yogyakarta, Indonesia</div>
+          <div class="font-bold text-slate-900 dark:text-white text-base" data-i18n="contact.locationTitle">Base Location</div>
+          <div class="text-xs font-mono text-slate-700 dark:text-slate-300 font-semibold" data-i18n="contact.locationVal">Yogyakarta, Indonesia</div>
+          <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="contact.locationSub">Open for remote worldwide and hybrid opportunities.</p>
         </div>
       </div>
 
-      <div class="text-center pt-4">
-        <a href="Husen-Efendi-Resume.pdf" target="_blank" download class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-700 hover:to-indigo-700 text-white font-semibold text-sm shadow-lg shadow-brand-500/25 transition-all hover:-translate-y-0.5">
-          <i data-lucide="file-down" class="w-4 h-4"></i>
-          <span>Download Complete Resume (PDF)</span>
+      <div class="text-center pt-2 flex flex-wrap items-center justify-center gap-3">
+        <a href="https://github.com/husenEF" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-700 hover:to-indigo-700 text-white font-semibold text-sm shadow-lg shadow-brand-500/25 transition-all hover:-translate-y-0.5">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span data-i18n="contact.ctaGitHub">Connect on GitHub</span>
         </a>
+        <button onclick="window.print()" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-sm shadow-sm transition-all hover:-translate-y-0.5">
+          <i data-lucide="printer" class="w-4 h-4 text-brand-500"></i>
+          <span data-i18n="contact.ctaPrint">Print / Save CV as PDF</span>
+        </button>
       </div>
     </section>
 
@@ -898,23 +921,20 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400 font-mono">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-brand-500"></span>
-        <span>&copy; <span id="current-year"></span> Husen Efendi. Crafted for GitHub Pages.</span>
+        <span>&copy; <span id="current-year"></span> Husen Efendi. <span data-i18n="footer.tag">Crafted for GitHub Pages.</span></span>
       </div>
       <div class="flex items-center gap-5">
         <a href="https://github.com/husenEF" target="_blank" rel="noopener noreferrer" class="hover:text-brand-500 transition-colors flex items-center gap-1">
           <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
         </a>
-        <a href="mailto:husenef@gmail.com" class="hover:text-brand-500 transition-colors flex items-center gap-1">
-          <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
-        </a>
         <a href="#hero" class="hover:text-brand-500 transition-colors flex items-center gap-1">
-          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i> Back to top
+          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i> <span data-i18n="footer.backToTop">Back to top</span>
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPT FOR INTERACTIVITY -->
+  <!-- SCRIPT FOR I18N, THEME & INTERACTIVITY -->
   <script>
     // Initialize Lucide icons
     lucide.createIcons();
@@ -922,11 +942,388 @@
     // Year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    // Dark Mode Toggle Logic
+    // ==========================================
+    // MULTI-LANGUAGE (EN / ID) DICTIONARY
+    // ==========================================
+    const translations = {
+      en: {
+        "nav.subtitle": "Software Engineer",
+        "nav.about": "About",
+        "nav.experience": "Experience",
+        "nav.projects": "Projects",
+        "nav.skills": "Skills",
+        "nav.mentorship": "Mentorship",
+        "nav.contact": "Contact",
+        "nav.printCV": "Print CV",
+
+        "hero.status": "Open to Software Engineering & Frontend Opportunities",
+        "hero.greeting": "Hi, I'm",
+        "hero.role": "Senior Software Engineer & Frontend Specialist",
+        "hero.bio": "With 11+ years of experience crafting responsive web applications, mobile platforms, and robust backend integrations. Focused on modern JavaScript/TypeScript, React, Vue, React Native, and clean engineering architecture.",
+        "hero.location": "Yogyakarta, Indonesia",
+        "hero.experienceYears": "11+ Years Experience",
+        "hero.viewProjects": "Explore Projects",
+        "hero.github": "GitHub Profile",
+        "hero.printCV": "Print / Save CV",
+        "hero.badgeYears": "11+ Years Dev",
+
+        "metrics.years": "Years Experience",
+        "metrics.modernJs": "Years React & Vue",
+        "metrics.shipped": "Shipped Applications",
+        "metrics.trained": "Developers Trained",
+
+        "about.pill": "Profile Overview",
+        "about.title": "Technical Summary",
+        "about.description": "A track record spanning over a decade of delivering commercial software, modern web platforms, mobile solutions, and leading technical trainings.",
+        "about.card1Title": "Modern Frontend & UI",
+        "about.card1Body": "5+ years mastering React.js and Vue.js (Composition API). Over 11 years deep expertise with HTML5, modern CSS, Tailwind CSS, Material UI, and preprocessors (SASS/SCSS, LESS, PostCSS).",
+        "about.card2Title": "Mobile & Hardware I/O",
+        "about.card2Body": "Hands-on React Native & Expo developer with real-world deployments to Google Play Store. Experienced integrating specialized hardware like selfie kiosks and ID card scanners.",
+        "about.card3Title": "Backend & Architecture",
+        "about.card3Body": "8+ years with PHP (Laravel, Lumen, CodeIgniter, WordPress Multisite), complemented by Node.js, NestJS, Express, and Docker. Experience designing decoupled REST architectures.",
+
+        "exp.pill": "Career Journey",
+        "exp.title": "Work Experience",
+        "exp.description": "Proven history of working with international engineering teams and delivering production-ready platforms.",
+        "exp.item1Role": "Front End Developer",
+        "exp.item1Date": "Dec 2025 — Present",
+        "exp.item1Bullets": `
+          <li>Developed and maintained responsive web applications using React.js, Vue.js, and modern frontend tooling.</li>
+          <li>Owned mobile application releases, including end-to-end CI/CD and deployment processes.</li>
+          <li>Managed, prioritized, and reviewed tickets in close collaboration with product and UI/UX design teams.</li>
+          <li>Identified and implemented architectural improvements to codebase structure and developer experience (DX).</li>
+        `,
+        "exp.item2Role": "Front End Developer",
+        "exp.item2Date": "Aug 2021 — Oct 2025",
+        "exp.item2Bullets": `
+          <li>Built large-scale web applications using React.js and modern component architecture.</li>
+          <li>Engineered clean, responsive UI layouts utilizing Material UI and Tailwind CSS.</li>
+          <li>Collaborated daily in active voice standups and agile sprints directly with Australian clients.</li>
+          <li>Built internal mobile applications using React Native and Expo ecosystem.</li>
+          <li>Built and integrated backend services using NestJS and REST endpoints.</li>
+        `,
+        "exp.item3Role": "Associate Trainer",
+        "exp.item3Date": "Jul 2020 — Jul 2021",
+        "exp.item3Bullets": `
+          <li>Led intensive professional programming trainings and workshops for aspiring engineers.</li>
+          <li>Hosted Refactory Live tech discussions covering Vue.js, React Native, and Flutter.</li>
+          <li>Led internal developer bootcamps: training engineers from foundational JavaScript to advanced React Native.</li>
+          <li>Authored comprehensive video courses on CodeIgniter, React.js Context API, React Native, and Vue Composition API.</li>
+        `,
+        "exp.item4Role": "React Native Developer",
+        "exp.item4Date": "Sep 2019 — Jul 2020",
+        "exp.item4Bullets": `
+          <li>Developed cross-platform mobile applications using React Native.</li>
+          <li>Maintained production mobile apps deployed and active on Google Play Store.</li>
+        `,
+        "exp.item5Role": "Web Developer",
+        "exp.item5Date": "2013 — 2018",
+        "exp.item5Bullets": `
+          <li>Created client websites using WordPress, Laravel, and CodeIgniter.</li>
+          <li>Engineered custom WordPress themes and plugins, including custom WooCommerce integrations.</li>
+          <li>Developed an MLM Web Application utilizing WordPress Multisite architecture with subdomains.</li>
+        `,
+        "exp.item6Role": "Junior Web Developer",
+        "exp.item6Date": "2011 — 2013",
+        "exp.item6Bullets": `
+          <li>Created websites using WordPress, Joomla, and Magento.</li>
+          <li>Pixel-perfect day-to-day conversion of PSD design mockups into semantic, cross-browser HTML & CSS.</li>
+        `,
+
+        "projects.pill": "Showcase",
+        "projects.title": "Featured Projects & Systems",
+        "projects.description": "Selected projects highlighting architectural leadership, custom implementations, and full-stack solutions.",
+        "projects.filterAll": "All",
+        "projects.viewRepo": "View Repo",
+
+        "p1.badge": "Enterprise Platform",
+        "p1.role": "Project Lead",
+        "p1.title": "WordPress Multisite MLM Platform",
+        "p1.desc": "Architected and led the development of a multi-tenant WordPress Multisite network enabling dynamic creation of subdomains with individual user themes for recruitment and sales. Built a custom plugin utilizing the WooCommerce REST API to centralize catalog items, transactions, and downline stockist orders on the main hub.",
+
+        "p2.badge": "Fleet Management",
+        "p2.role": "From Scratch",
+        "p2.title": "Bus Fleet & Vehicle Service System",
+        "p2.desc": "Designed and built from scratch an enterprise management system to record and track all repair, maintenance, and diagnostics performed on buses. Implemented an independently deployable decoupled architecture with a Lumen (Laravel micro-framework) REST API backend and a responsive Vue.js frontend, ensuring seamless expansion for mobile field workers.",
+
+        "p3.badge": "Social & Community",
+        "p3.role": "Full Testing Suite",
+        "p3.title": "Business Community & Social Platform",
+        "p3.desc": "Developed an interactive social platform tailored for business networks featuring timelines, group-based feeds, courses, and blogs. Built with React.js frontend integrated with the Amity Social Engine, Hapi.js backend services, and Strapi CMS. Containerized with Docker and tested with Cypress E2E test suites across all key pages.",
+
+        "p4.badge": "Mobile & Hardware Kiosk",
+        "p4.role": "Google Play Store",
+        "p4.title": "Hotel Self-Check-In Kiosk & HR Mobile Suite",
+        "p4.desc": "Built contactless self-check-in mobile hardware for hotels, integrating selfie camera capture and physical ID card scanner devices. In addition, developed and shipped an internal enterprise HR mobile app released on Google Play Store featuring check-in/out, GPS/photo verification, payroll summaries, and leave management.",
+
+        "p5.badge": "Open Source Utility",
+        "p5.title": "Mini Invoice App",
+        "p5.desc": "Lightweight, fast invoice generation and tracking tool crafted for freelancers and small teams. Generates clean client invoices with automated calculations and downloadable print-ready formats.",
+
+        "p6.badge": "macOS Tool",
+        "p6.title": "ClaudeUsageBar for macOS",
+        "p6.desc": "A native macOS menu bar application to monitor AI prompt limits and usage quotas in real-time, designed for developer productivity and seamless workflow visibility.",
+
+        "skills.pill": "Toolset & Expertise",
+        "skills.title": "Skills & Tech Stack",
+        "skills.description": "A comprehensive overview of technologies and tools honed over 11+ years of building software.",
+        "skills.reactExp": "5+ yrs",
+        "skills.vueExp": "5+ yrs",
+        "skills.tsExp": "8+ yrs",
+        "skills.htmlExp": "11+ yrs",
+        "skills.rnExp": "3+ yrs",
+        "skills.nodeExp": "2+ yrs",
+        "skills.phpExp": "8+ yrs",
+        "skills.advanced": "Advanced",
+        "skills.experienced": "Experienced",
+        "skills.production": "Production",
+        "skills.workflow": "Workflow",
+        "skills.architect": "Architect",
+        "skills.active": "Active",
+        "skills.global": "Global",
+
+        "mentor.pill": "Giving Back",
+        "mentor.title": "Training, Mentorship & Community",
+        "mentor.badge": "Refactory Associate Trainer (2020 — 2021)",
+        "mentor.description": "Passionate about empowering the next generation of engineers. Led multiple full-cycle bootcamps, mentored junior-to-mid software developers, and authored structured engineering video courses.",
+        "mentor.c1Title": "Internal Bootcamps",
+        "mentor.c1Desc": "Mentored cohorts from JavaScript fundamentals to advanced React Native development.",
+        "mentor.c2Title": "Video Courses",
+        "mentor.c2Desc": "Created comprehensive courses on React Context API, Vue Composition API, and CodeIgniter.",
+        "mentor.c3Title": "Live Tech Sessions",
+        "mentor.c3Desc": "Hosted live interactive streams breaking down modern mobile & web frameworks.",
+        "mentor.c4Title": "Code Reviews & DX",
+        "mentor.c4Desc": "Reviewed hundreds of pull requests to instill clean architecture and testing best practices.",
+
+        "contact.pill": "Connect",
+        "contact.title": "Let's Build Something Great Together",
+        "contact.description": "Open for engineering collaborations, frontend architecture consultations, and technical inquiries. Reach out through GitHub or connect directly below.",
+        "contact.githubSub": "Explore repositories, open-source work, and code activity.",
+        "contact.locationTitle": "Base Location",
+        "contact.locationVal": "Yogyakarta, Indonesia",
+        "contact.locationSub": "Open for remote worldwide and hybrid opportunities.",
+        "contact.ctaGitHub": "Connect on GitHub",
+        "contact.ctaPrint": "Print / Save CV as PDF",
+
+        "footer.tag": "Crafted for GitHub Pages.",
+        "footer.backToTop": "Back to top"
+      },
+      id: {
+        "nav.subtitle": "Software Engineer",
+        "nav.about": "Tentang",
+        "nav.experience": "Pengalaman",
+        "nav.projects": "Proyek",
+        "nav.skills": "Keahlian",
+        "nav.mentorship": "Mentoring",
+        "nav.contact": "Kontak",
+        "nav.printCV": "Cetak CV",
+
+        "hero.status": "Terbuka untuk Peluang Software Engineering & Frontend",
+        "hero.greeting": "Halo, Saya",
+        "hero.role": "Senior Software Engineer & Spesialis Frontend",
+        "hero.bio": "Dengan pengalaman lebih dari 11 tahun merancang aplikasi web responsif, platform mobile, dan integrasi backend yang andal. Berfokus pada JavaScript/TypeScript modern, React, Vue, React Native, dan arsitektur rekayasa perangkat lunak yang bersih.",
+        "hero.location": "Yogyakarta, Indonesia",
+        "hero.experienceYears": "11+ Tahun Pengalaman",
+        "hero.viewProjects": "Lihat Proyek",
+        "hero.github": "Profil GitHub",
+        "hero.printCV": "Cetak / Simpan CV",
+        "hero.badgeYears": "11+ Thn Pengembang",
+
+        "metrics.years": "Tahun Pengalaman",
+        "metrics.modernJs": "Tahun React & Vue",
+        "metrics.shipped": "Aplikasi Terdistribusi",
+        "metrics.trained": "Pengembang Dilatih",
+
+        "about.pill": "Ringkasan Profil",
+        "about.title": "Ringkasan Teknis",
+        "about.description": "Rekam jejak lebih dari satu dekade dalam menghadirkan perangkat lunak komersial, platform web modern, solusi mobile, serta memimpin pelatihan teknis.",
+        "about.card1Title": "Frontend Modern & UI",
+        "about.card1Body": "5+ tahun menguasai React.js dan Vue.js (Composition API). Lebih dari 11 tahun pengalaman mendalam dengan HTML5, CSS modern, Tailwind CSS, Material UI, dan preprocessor (SASS/SCSS, LESS, PostCSS).",
+        "about.card2Title": "Mobile & Integrasi Perangkat",
+        "about.card2Body": "Pengembang aktif React Native & Expo dengan rilis produksi ke Google Play Store. Berpengalaman mengintegrasikan perangkat keras khusus seperti kios swafoto dan pemindai e-KTP.",
+        "about.card3Title": "Backend & Arsitektur API",
+        "about.card3Body": "8+ tahun dengan PHP (Laravel, Lumen, CodeIgniter, WordPress Multisite), dilengkapi Node.js, NestJS, Express, dan Docker. Berpengalaman mendesain arsitektur REST mandiri yang terpisah.",
+
+        "exp.pill": "Perjalanan Karier",
+        "exp.title": "Pengalaman Kerja",
+        "exp.description": "Rekam jejak terbukti berkolaborasi dengan tim rekayasa internasional dan merilis platform siap produksi.",
+        "exp.item1Role": "Front End Developer",
+        "exp.item1Date": "Des 2025 — Sekarang",
+        "exp.item1Bullets": `
+          <li>Mengembangkan dan memelihara aplikasi web responsif dengan React.js, Vue.js, dan perkakas frontend modern.</li>
+          <li>Memimpin siklus rilis aplikasi mobile, termasuk proses CI/CD dan alur deployment.</li>
+          <li>Mengelola, memprioritaskan, dan mereview tiket bersama tim produk dan desainer UI/UX.</li>
+          <li>Mengidentifikasi dan mengimplementasikan peningkatan struktur basis kode dan pengalaman pengembang (DX).</li>
+        `,
+        "exp.item2Role": "Front End Developer",
+        "exp.item2Date": "Ags 2021 — Okt 2025",
+        "exp.item2Bullets": `
+          <li>Membangun aplikasi web skala besar menggunakan React.js dan arsitektur komponen modern.</li>
+          <li>Merancang antarmuka pengguna yang bersih dan responsif menggunakan Material UI dan Tailwind CSS.</li>
+          <li>Kolaborasi harian dalam standup suara aktif dan sprint berkala langsung bersama klien asal Australia.</li>
+          <li>Membangun aplikasi mobile internal perusahaan dengan React Native dan ekosistem Expo.</li>
+          <li>Membangun dan mengintegrasikan layanan backend menggunakan NestJS dan REST endpoints.</li>
+        `,
+        "exp.item3Role": "Associate Trainer",
+        "exp.item3Date": "Jul 2020 — Jul 2021",
+        "exp.item3Bullets": `
+          <li>Menangani pelatihan pemrograman profesional dan workshop intensif untuk calon software engineer.</li>
+          <li>Memandu diskusi teknis berkala Refactory Live dengan topik: Vue.js, React Native, dan Flutter.</li>
+          <li>Memimpin bootcamp internal pengembang: melatih peserta dari dasar JavaScript hingga React Native tingkat lanjut.</li>
+          <li>Memproduksi video kursus teknis komprehensif: CodeIgniter, React Context API, React Native, dan Vue Composition API.</li>
+        `,
+        "exp.item4Role": "React Native Developer",
+        "exp.item4Date": "Sep 2019 — Jul 2020",
+        "exp.item4Bullets": `
+          <li>Mengembangkan beragam proyek aplikasi mobile lintas platform dengan React Native.</li>
+          <li>Memelihara performa aplikasi di lingkungan produksi yang telah dirilis di Google Play Store.</li>
+        `,
+        "exp.item5Role": "Web Developer",
+        "exp.item5Date": "2013 — 2018",
+        "exp.item5Bullets": `
+          <li>Membangun situs web menggunakan WordPress, Laravel, dan CodeIgniter.</li>
+          <li>Membuat tema dan plugin kustom sesuai kebutuhan klien, termasuk integrasi kustom WooCommerce.</li>
+          <li>Membangun aplikasi web MLM berbasis WordPress Multisite dengan arsitektur subdomain dinamis.</li>
+        `,
+        "exp.item6Role": "Junior Web Developer",
+        "exp.item6Date": "2011 — 2013",
+        "exp.item6Bullets": `
+          <li>Membuat website menggunakan platform WordPress, Joomla, dan Magento.</li>
+          <li>Mengonversi desain antarmuka (PSD/mockup) menjadi kode HTML & CSS semantik dan presisi setiap hari.</li>
+        `,
+
+        "projects.pill": "Portofolio",
+        "projects.title": "Proyek & Sistem Unggulan",
+        "projects.description": "Koleksi proyek terpilih yang menonjolkan kepemimpinan arsitektur, kustomisasi tingkat lanjut, dan solusi fullstack.",
+        "projects.filterAll": "Semua",
+        "projects.viewRepo": "Lihat Kode",
+
+        "p1.badge": "Platform Enterprise",
+        "p1.role": "Lead Proyek",
+        "p1.title": "Platform MLM WordPress Multisite",
+        "p1.desc": "Merancang arsitektur dan memimpin pengembangan jaringan WordPress Multisite multi-tenant yang memungkinkan pembuatan subdomain otomatis dengan tema kustom masing-masing pengguna untuk perekrutan dan penjualan. Membangun plugin kustom yang memanfaatkan WooCommerce REST API guna memusatkan katalog produk, transaksi, dan pesanan stokis bawahan ke sistem pusat.",
+
+        "p2.badge": "Manajemen Armada",
+        "p2.role": "Dari Nol",
+        "p2.title": "Sistem Perawatan Armada Bus & Kendaraan",
+        "p2.desc": "Mendesain dan membangun dari nol sistem manajemen terpusat untuk mencatat dan memantau seluruh perbaikan, pemeliharaan, dan diagnosa armada bus. Mengimplementasikan arsitektur terpisah (decoupled) antara backend REST API berbasis Lumen (mikro-framework Laravel) dan frontend Vue.js responsif yang siap dikembangkan untuk pekerja lapangan via mobile.",
+
+        "p3.badge": "Sosial & Komunitas",
+        "p3.role": "Pengujian Penuh",
+        "p3.title": "Platform Komunitas Bisnis & Media Sosial",
+        "p3.desc": "Mengembangkan platform media sosial interaktif untuk jaringan bisnis dengan timeline dinamis, linimasa grup, modul kursus, dan artikel blog. Dibangun dengan antarmuka React.js terintegrasi dengan engine sosial Amity, backend Hapi.js, serta Strapi CMS. Dikelola dalam wadah Docker dan diuji menyeluruh menggunakan pengujian E2E Cypress.",
+
+        "p4.badge": "Mobile & Kios Fisik",
+        "p4.role": "Google Play Store",
+        "p4.title": "Kios Mandiri Hotel & Aplikasi Mobile HR",
+        "p4.desc": "Membangun sistem registrasi mandiri nirkontak berbasis Android untuk hotel pada masa pandemi, terhubung langsung dengan modul kamera swafoto dan pemindai fisik kartu identitas. Selain itu, mengembangkan aplikasi mobile HR internal yang dirilis di Google Play Store untuk absensi foto/GPS, penggajian, dan cuti.",
+
+        "p5.badge": "Perkakas Open Source",
+        "p5.title": "Aplikasi Mini Invoice",
+        "p5.desc": "Aplikasi pembuatan dan pemantauan faktur kilat yang dirancang untuk pekerja lepas dan tim kecil. Menghasilkan invoice klien dengan kalkulasi otomatis dan tata letak siap cetak/PDF.",
+
+        "p6.badge": "Aplikasi macOS",
+        "p6.title": "ClaudeUsageBar untuk macOS",
+        "p6.desc": "Aplikasi menu bar native macOS untuk memantau batas pemakaian dan kuota prompt AI secara real-time, dirancang untuk efisiensi dan alur kerja pengembang yang lancar.",
+
+        "skills.pill": "Keahlian & Tumpukan",
+        "skills.title": "Keahlian & Teknologi",
+        "skills.description": "Gambaran komprehensif teknologi dan perkakas yang diasah selama lebih dari 11 tahun berkarier.",
+        "skills.reactExp": "5+ thn",
+        "skills.vueExp": "5+ thn",
+        "skills.tsExp": "8+ thn",
+        "skills.htmlExp": "11+ thn",
+        "skills.rnExp": "3+ thn",
+        "skills.nodeExp": "2+ thn",
+        "skills.phpExp": "8+ thn",
+        "skills.advanced": "Tingkat Lanjut",
+        "skills.experienced": "Berpengalaman",
+        "skills.production": "Produksi",
+        "skills.workflow": "Alur Kerja",
+        "skills.architect": "Arsitek",
+        "skills.active": "Aktif",
+        "skills.global": "Global",
+
+        "mentor.pill": "Kontribusi",
+        "mentor.title": "Pelatihan, Mentoring & Komunitas",
+        "mentor.badge": "Refactory Associate Trainer (2020 — 2021)",
+        "mentor.description": "Berdedikasi dalam memberdayakan generasi pengembang selanjutnya. Memimpin beragam bootcamp intensif, membimbing pengembang perangkat lunak tingkat junior hingga menengah, dan memproduksi video kursus rekayasa terstruktur.",
+        "mentor.c1Title": "Bootcamp Internal",
+        "mentor.c1Desc": "Membimbing angkatan peserta dari fondasi JavaScript dasar hingga pengembangan React Native tingkat lanjut.",
+        "mentor.c2Title": "Video Kursus",
+        "mentor.c2Desc": "Membuat materi kursus video komprehensif tentang React Context API, Vue Composition API, dan CodeIgniter.",
+        "mentor.c3Title": "Sesi Berbagi Langsung",
+        "mentor.c3Desc": "Memandu siaran langsung interaktif yang mengupas arsitektur framework mobile dan web modern.",
+        "mentor.c4Title": "Code Review & DX",
+        "mentor.c4Desc": "Meninjau ratusan pull request untuk menanamkan praktik kode bersih, modular, dan berstandar industri.",
+
+        "contact.pill": "Terhubung",
+        "contact.title": "Mari Berkolaborasi & Membangun Solusi Hebat",
+        "contact.description": "Terbuka untuk kolaborasi rekayasa perangkat lunak, konsultasi arsitektur frontend, dan peluang kerja sama profesional. Hubungi melalui kanal GitHub atau tautan di bawah.",
+        "contact.githubSub": "Jelajahi repositori, proyek open-source, dan aktivitas kode saya.",
+        "contact.locationTitle": "Domisili",
+        "contact.locationVal": "Yogyakarta, Indonesia",
+        "contact.locationSub": "Terbuka untuk posisi kerja jarak jauh (remote) global maupun hybrid.",
+        "contact.ctaGitHub": "Terhubung di GitHub",
+        "contact.ctaPrint": "Cetak / Simpan CV (PDF)",
+
+        "footer.tag": "Dibuat untuk GitHub Pages.",
+        "footer.backToTop": "Kembali ke atas"
+      }
+    };
+
+    // Current language state
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+
+      // Update button text
+      const langLabel = document.getElementById('lang-label');
+      if (langLabel) {
+        langLabel.textContent = lang === 'en' ? 'EN / ID' : 'ID / EN';
+      }
+
+      const dict = translations[lang] || translations.en;
+
+      // Update plain text attributes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.textContent = dict[key];
+        }
+      });
+
+      // Update HTML content attributes (for lists, etc.)
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Re-trigger icon rendering if needed
+      lucide.createIcons();
+    }
+
+    // Toggle language on button click
+    const langToggleBtn = document.getElementById('lang-toggle');
+    langToggleBtn.addEventListener('click', () => {
+      const nextLang = currentLang === 'en' ? 'id' : 'en';
+      setLanguage(nextLang);
+    });
+
+    // Initialize language on page load
+    setLanguage(currentLang);
+
+    // ==========================================
+    // DARK / LIGHT THEME TOGGLE
+    // ==========================================
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
 
-    // Check saved theme or prefer-color-scheme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
       htmlElement.classList.remove('dark');
@@ -944,7 +1341,9 @@
       }
     });
 
-    // Mobile Menu Toggle
+    // ==========================================
+    // MOBILE MENU
+    // ==========================================
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -958,7 +1357,9 @@
       });
     });
 
-    // Project Filter Logic
+    // ==========================================
+    // PROJECT FILTERING
+    // ==========================================
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
@@ -966,7 +1367,6 @@
       btn.addEventListener('click', () => {
         const filter = btn.getAttribute('data-filter');
 
-        // Update button active state
         filterButtons.forEach(b => {
           b.classList.remove('active', 'bg-brand-600', 'text-white');
           b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
@@ -974,7 +1374,6 @@
         btn.classList.add('active', 'bg-brand-600', 'text-white');
         btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
 
-        // Filter cards
         projectCards.forEach(card => {
           const category = card.getAttribute('data-category');
           if (filter === 'all' || category.includes(filter)) {
